@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Lab_1
 {
-    public interface IMatrix
+    class TranspontMatrix
     {
-        static double [][] RandomMatrix { get; set; }
     }
 }
