@@ -6,6 +6,11 @@ namespace Lab_1
 {
     public interface IMatrix
     {
-        static double [][] RandomMatrix { get; set; }
+        public void CreateNewRandomMatrix();
+
+        public void ChangeMatrixSize();
+
+        public void PrintMatrix();
+
     }
 }
