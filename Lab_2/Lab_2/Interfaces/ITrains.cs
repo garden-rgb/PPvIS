@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab_2.Interfaces
+namespace Lab_2
 {
-    interface ITrains:ILandTransport
+    public interface ITrains:ILandTransport
     {
        protected double thrust { get; set; }
        protected string typeOfEnergy { get; set; }
-       public void setThrust();
-        public void setTypeOfEnergy(string typeOfEnergy);
+       public void setThrust(double thrust);
+       public void setTypeOfEnergy(string typeOfEnergy);
     }
 }

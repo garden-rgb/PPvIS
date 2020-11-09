@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab_2.Interfaces
+namespace Lab_2
 {
     public interface IWaterTransport:ITransport
     {
