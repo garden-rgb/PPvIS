@@ -6,9 +6,7 @@ namespace Lab_2
 {
     public interface IHelicopters:IAirTransport
     {
-        protected double screwCount { get; set; }
-        protected string classification { get; set; }
-        public void setScrewCount(double screwCount);
-        public void setClassification(string classification);
+        public double ScrewCount { get; set; }
+        public string Classification { get; set; }
     }
 }

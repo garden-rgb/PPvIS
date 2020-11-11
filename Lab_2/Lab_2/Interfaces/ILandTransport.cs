@@ -6,9 +6,7 @@ namespace Lab_2
 {
     public interface ILandTransport:ITransport
     {
-        protected int horsepower { get; set; }
-        protected int engineСapacity { get; set; }
-        public void setHorsepower(int horsepower);
-        public void setEngineCapacity(int engineCapacity);
+        public int Horsepower { get; set; }
+        public string EngineType { get; set; }
     }
 }

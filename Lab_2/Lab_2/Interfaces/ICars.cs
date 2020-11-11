@@ -6,9 +6,7 @@ namespace Lab_2
 {
     interface ICars:ILandTransport
     {
-        protected string carType { get; set; }
-        protected string engineType { get; set; }
-        public void setEngineType(string engineType);
-        public void setCarType(string carType);
+        public string CarType { get; set; }
+        public string CarModel { get; set; }
     }
 }

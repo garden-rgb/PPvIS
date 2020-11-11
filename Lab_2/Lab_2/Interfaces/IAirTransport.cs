@@ -6,8 +6,7 @@ namespace Lab_2
 {
     public interface IAirTransport:ITransport
     {
-        protected int maxCapacity { get; set; }
-        public void setMaxCapacity(int maxCapacity);
+        public int maxCapacity { get; set; }
 
     }
 }
