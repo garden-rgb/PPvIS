@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Lab_2
 {
+    /// <summary>
+    /// Класс-наследник морских судов
+    /// </summary>
     public class Vessel:WaterTransport,IVessel
     {
         private double _maxCarrying;
@@ -12,6 +15,9 @@ namespace Lab_2
         {
             _maxCarrying = 12000;
         }
+        /// <summary>
+        /// Свойство максимальной вместимости судна
+        /// </summary>
         public double MaxCarrying
         {
             get => _maxCarrying;

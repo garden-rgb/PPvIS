@@ -20,7 +20,7 @@ namespace Lab_2
             _classification = "Civil";
         }
         /// <summary>
-        /// Поле для чтения и записи количества винтов
+        /// Свойство для чтения и записи количества винтов
         /// </summary>
         public double ScrewCount
         {
@@ -28,7 +28,7 @@ namespace Lab_2
             set => _screwCount = value;
         }
         /// <summary>
-        /// Поле для чтения и записи классификации
+        /// Свойство для чтения и записи классификации
         /// </summary>
         public string Classification
         {

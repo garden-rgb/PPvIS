@@ -20,7 +20,7 @@ namespace Lab_2
             _typeOfenergy = "Steam";
         }
         /// <summary>
-        /// Поле для чтения и записи силы тяги
+        /// Свойство для чтения и записи силы тяги
         /// </summary>
         public double Thrust
         {
@@ -28,7 +28,7 @@ namespace Lab_2
             set => _thrust = value;
         }
         /// <summary>
-        /// Поле для чтения и записи вида используемой энергии
+        /// Свойство для чтения и записи вида используемой энергии
         /// </summary>
         public string TypeOfEnergy
         {

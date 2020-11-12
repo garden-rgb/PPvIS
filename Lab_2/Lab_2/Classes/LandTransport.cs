@@ -21,7 +21,7 @@ namespace Lab_2
             _engineType = "Disel";
         }
         /// <summary>
-        ///  Поле для чтения и записи лошадиных сил
+        ///  Свойство для чтения и записи лошадиных сил
         /// </summary>
         public int Horsepower
         {
@@ -30,7 +30,7 @@ namespace Lab_2
             set => _horsePower=value;
         }
         /// <summary>
-        /// Поле для чтения и записи вида двигателя
+        /// Свойство для чтения и записи вида двигателя
         /// </summary>
         public string EngineType
         {

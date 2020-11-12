@@ -20,7 +20,7 @@ namespace Lab_2
             _carModel = "Ford";
         }
         /// <summary>
-        /// Поле для чтения и записи типа машины
+        /// Свойство для чтения и записи типа машины
         /// </summary>
         public string CarType
         {
@@ -28,7 +28,7 @@ namespace Lab_2
             set => _carType = value;
         }
         /// <summary>
-        /// Поле для чтения и записи модели машины
+        /// Свойство для чтения и записи модели машины
         /// </summary>
         public string CarModel
         {

@@ -20,7 +20,7 @@ namespace Lab_2
             _typeOfEngine = "Rocket engine";
         }
         /// <summary>
-        /// Поле для чтения и записи количества двигателей
+        /// Свойство для чтения и записи количества двигателей
         /// </summary>
         public double EngineCounts
         {
@@ -28,7 +28,7 @@ namespace Lab_2
             set => _engineCounts = value;
         }
         /// <summary>
-        /// Поле для чтения и записи вида двигателя
+        /// Свойство для чтения и записи вида двигателя
         /// </summary>
         public string TypeOfEngine
         {
