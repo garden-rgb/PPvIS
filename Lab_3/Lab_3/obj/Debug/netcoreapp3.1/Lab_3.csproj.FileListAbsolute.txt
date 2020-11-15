@@ -1,0 +1,4 @@
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Lab_3.exe
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.csprojAssemblyReference.cache
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.AssemblyInfoInputs.cache
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.AssemblyInfo.cs
