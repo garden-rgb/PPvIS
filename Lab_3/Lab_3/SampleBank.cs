@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Lab_3
 {
-    class SampleBank:Bank,IBank
+    public class SampleBank:Bank,IBank
     {
+        private const int Limit = 100;
+
         private const decimal LowRate = 10;
 
         private const int LowRateAgeLimit = 28;
@@ -21,15 +23,54 @@ namespace Lab_3
         {
 
         }
+        public decimal Balance => base.GetBalance();
 
-        public string CreateClient(string name, int age)
+        public string InitializeClient(string name, int age)
         {
-            var clientRate = base.EvaluateScoringRate(age, LowRateAgeLimit, AverageRateAgeLimit);
-            return base.CreateClient(name, age, clientRate);
+            var clientRate = EvaluateScoringRate(age, LowRateAgeLimit, AverageRateAgeLimit);
+            
+            return InitializeClient(name, age, clientRate);
         }
-        public decimal Balance(Guid id)
+        
+        public void Withdraw(decimal amount)
         {
-            return base.Balance;
+            if (amount > Limit)
+            {
+                Console.WriteLine("You have exceeded the allowed amount for cash withdraw");
+            }
+            else
+            {
+                var actualClient = client;
+                var flag = VerifyPin(actualClient);
+
+                if (flag)
+                {
+                    var delta = Balance - amount;
+                    var finalAmount = amount; // avoiding editing argument
+
+                    if (delta < 0)
+                    {
+                        var feeRate = CalculateRate(client.ScoringRate, LowRate, AverageRate, HighRate);
+                        delta = Math.Abs(delta);
+                        finalAmount += delta * feeRate - delta;
+                    }
+                    base.Withdraw(finalAmount);
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Pin-Code");
+                }
+            }
+        }
+        public void CashIn(decimal amount)
+        {
+            var actualClient = client;
+            var flag = VerifyPin(actualClient);
+            if (flag)
+            {
+                var newBalance = Balance + amount;
+                base.CashIn(newBalance);
+            }
         }
     }
 }

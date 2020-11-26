@@ -10,7 +10,6 @@ namespace Lab_3
         {
             Transactions = new List<decimal>();
         }
-        public Guid Id { get; set; }
         public int Age { get; set; }
         public string Name { get; set; }
         public string Pin { get; set; }

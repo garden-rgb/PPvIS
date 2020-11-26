@@ -6,7 +6,9 @@ namespace Lab_3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var path = @"C:\Users\J\Desktop\test.txt";
+            var sampleBank = new SampleBank(path);
+            
         }
     }
 }

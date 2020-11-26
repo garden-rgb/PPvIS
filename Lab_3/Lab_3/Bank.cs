@@ -10,6 +10,8 @@ namespace Lab_3
     public abstract class Bank
     {
         private readonly string _pathToDataFile;
+
+        private string _pin;
         public decimal Balance => GetBalance();
 
         protected Bank(string pathToFile)
@@ -17,29 +19,46 @@ namespace Lab_3
             _pathToDataFile = pathToFile;
         }
 
-        protected string CreateClient(string name, int age, ClientScoringRate rate)
+        protected string InitializeClient(string name, int age, ClientScoringRate rate)
         {
+            _pin = RequestPin();
             var pin = PinGenerator.GeneratePin();
             var newClient = new Client
             {
                 Name = name,
                 Age = age,
                 ScoringRate = rate,
+                Pin = pin
             };
             return  pin;
         }
+        protected string RequestPin()
+        {
+            Console.WriteLine("Enter your PIN");
+            _pin = Console.ReadLine();
+            return _pin;
+        }
+        protected bool VerifyPin(Client client)
+        {
+            var _actualClientPin = client.Pin;
+            var _pin = RequestPin();
+            return _actualClientPin == _pin;
+        }
 
-        
-        
-        protected void CashIn(Guid id, decimal amount)
+        protected void GetClient(Client client)
+        {
+            WriteClientData(client);
+        }
+
+
+        protected void CashIn(decimal amount)
         {
             AddTransaction(amount);
         }
 
-        protected void Withdraw(Guid id, decimal amount)
+        protected void Withdraw(decimal amount)
         {
-            AddTransaction(amount * -1);
-
+            AddTransaction(amount);
         }
         protected decimal CalculateRate(ClientScoringRate rate, decimal lowRate, decimal mediumRate, decimal highRate)
         {
@@ -77,13 +96,14 @@ namespace Lab_3
 
             return rate;
         }
-        private decimal GetBalance()
+        protected decimal GetBalance()
         {
             var client = ReadClientData();
             return client.Transactions.Sum();
         }
         private void AddTransaction(decimal amount)
         {
+
             var client = ReadClientData();
             client.Transactions.Add(amount);
             WriteClientData(client);
