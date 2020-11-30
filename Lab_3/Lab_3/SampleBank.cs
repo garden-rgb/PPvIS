@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Lab_3
 {
-    public class SampleBank:Bank,IBank
+    /// <summary>
+    /// Класс реализации функций банкомата
+    /// </summary>
+    public class SampleBank : Bank, IBank
     {
         private const int Limit = 100;
 
@@ -19,18 +22,11 @@ namespace Lab_3
         private const decimal HighRate = 30;
 
         private Client client;
-        public SampleBank(string pathToFile):base(pathToFile)
+        public SampleBank(int age, decimal balance, string name):base(name,balance,age)
         {
-
+            balance = Balance;
         }
         public decimal Balance => base.GetBalance();
-
-        public string InitializeClient(string name, int age)
-        {
-            var clientRate = EvaluateScoringRate(age, LowRateAgeLimit, AverageRateAgeLimit);
-            
-            return InitializeClient(name, age, clientRate);
-        }
         
         public void Withdraw(decimal amount)
         {

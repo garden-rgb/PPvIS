@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Lab_3
 {
+    /// <summary>
+    /// Создание случайного Пин-Кода
+    /// </summary>
     public static class PinGenerator
     {
         private static Random Rnd;
@@ -16,6 +19,10 @@ namespace Lab_3
         {
             Rnd = new Random();
         }
+        /// <summary>
+        /// Свойство генерации случайного Пин-Кода
+        /// </summary>
+        /// <returns></returns>
         public static string GeneratePin()
         {
             return Rnd.Next(PinStart, PinEnd).ToString("D4");

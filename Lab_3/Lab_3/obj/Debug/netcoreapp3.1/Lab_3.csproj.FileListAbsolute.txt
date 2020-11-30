@@ -2,3 +2,14 @@ C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Lab_3.exe
 C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.csprojAssemblyReference.cache
 C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.AssemblyInfoInputs.cache
 C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.AssemblyInfo.cs
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Lab_3.deps.json
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Lab_3.runtimeconfig.json
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Lab_3.runtimeconfig.dev.json
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Lab_3.dll
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Lab_3.pdb
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.csproj.CoreCompileInputs.cache
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.csproj.CopyComplete
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.dll
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.pdb
+C:\_Work\sem3\ППвИС\PPvIS\Lab_3\Lab_3\obj\Debug\netcoreapp3.1\Lab_3.genruntimeconfig.cache
