@@ -116,5 +116,103 @@ public:
 		}
 		inputFileStream.close();
 	};
+	int isEdgeExist(T iObject, T jObject)
+	{
+		for (int k = 0; k < edge.size(); k++)
+		{
+			if ((node[edge[k].getBegin()].getObject() == iObject && node[edge[k].getEnd()].getObject() == jObject) ||
+				(node[edge[k].getBegin()].getObject() == jObject && node[edge[k].getEnd()].getObject() == iObject))
+			{
+				return k;
+			}
+		}
+		return -1;
+	};
+	int isNodeExist(T _nodeObject)
+	{
+		for (int i = 0; i < node.size(); i++)
+		{
+			if (node[i].getObject() == _nodeObject)
+			{
+				return i;
+			}
+		}
+		return -1;
+	};
+	void showNodes()
+	{
+		cout << endl;
+		for (int i = 0; i < node.size(); i++)
+		{
+			cout << node[i].getObject() << endl;
+		}
+	};
+	void showEdges()
+	{
+		cout << endl;
+		for (int i = 0; i < edge.size(); i++)
+		{
+			cout << node[edge[i].getBegin()].getObject() << " - " << node[edge[i].getEnd()].getObject() << endl;
+		}
+	};
 
+	class Node_Iterator {
+	private:
+		Graph<T>* graphIteration;
+		int index;
+	public:
+		Node_Iterator(Graph<T>& graph)
+		{
+			graphIteration = &graph;
+			index = 0;
+		}
+		bool next()
+		{
+			if (graphForIteration->node.size() <= index + 1)
+			{
+				return false;
+			}
+			index++;
+			return true;
+		}
+		bool prev()
+		{
+			if (index == 0)
+			{
+				return false;
+			}
+			index--;
+			return true;
+		}
+	};
+	class Edge_iterator
+	{
+	private:
+		Graph<T>* graphForIteration;
+		int index;
+	public:
+		Edge_iterator(Graph<T>& graph)
+		{
+			graphForIteration = &graph;
+			index = 0;
+		}
+		bool next()
+		{
+			if (graphForIteration->edge.size() <= index + 1)
+			{
+				return false;
+			}
+			index++;
+			return true;
+		}
+		bool prev()
+		{
+			if (index == 0)
+			{
+				return false;
+			}
+			index--;
+			return true;
+		}
+	}
 };
