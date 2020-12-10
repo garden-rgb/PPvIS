@@ -139,6 +139,15 @@ public:
 		}
 		return -1;
 	};
+	short countOfNodes()
+	{
+		return node.size();
+	};
+	short countOfEdges()
+	{
+		return edge.size();
+	};
+
 	void showNodes()
 	{
 		cout << endl;
