@@ -97,7 +97,7 @@ public:
 				}
 			}
 		}
-	}
+	};
 	/// <summary>
 	/// Добавление ребра
 	/// </summary>
@@ -235,7 +235,7 @@ public:
 			return true;
 		}
 		return false;
-	}
+	};
 	/// <summary>
 	/// Итератор для вершин
 	/// </summary>
@@ -352,5 +352,5 @@ public:
 			index--;
 			return true;
 		}
-	}
+	};
 };
