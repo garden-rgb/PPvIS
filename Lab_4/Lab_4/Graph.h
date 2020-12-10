@@ -5,7 +5,10 @@
 #include <string>
 
 using namespace std;
-
+/// <summary>
+/// Шаблон класса для записи и получения вершины
+/// </summary>
+/// <typeparam name="T"></typeparam>
 template <typename T> 
 class Node {
 private:
@@ -20,6 +23,9 @@ public:
 		return node;
 	}
 };
+/// <summary>
+/// Класс ребра графа
+/// </summary>
 class Edge {
 	int begin;
 	int end;
@@ -29,11 +35,11 @@ public:
 		begin = _begin;
 		end = _end;
 	}
-	short getBegin()
+	int getBegin()
 	{
 		return begin;
 	}
-	short getEnd()
+	int getEnd()
 	{
 		return end;
 	}
@@ -46,15 +52,26 @@ public:
 		end = _end;
 	}
 };
+/// <summary>
+/// Шаблон класса для работы с графом
+/// </summary>
+/// <typeparam name="T"></typeparam>
 template <typename T>
 class Graph {
 private:
 	vector<Node<T>> node;
 	vector<Edge> edge;
 public:
+	/// <summary>
+	/// Конструктор и деструктор
+	/// </summary>
+	/// <param name=""></param>
 	Graph(void) {};
 	~Graph(void) {};
-
+	/// <summary>
+	/// Добавление вершины
+	/// </summary>
+	/// <param name="_nodeObject"></param>
 	void addNode(T _nodeObject)
 	{
 		if (isNodeExist(_nodeObject) == -1)
@@ -62,6 +79,10 @@ public:
 			node.push_back(Node<T>(_nodeObject));
 		}
 	};
+	/// <summary>
+	/// Удаление вершины
+	/// </summary>
+	/// <param name="_nodeObject"></param>
 	void deleteNode(T _nodeObject)
 	{
 		short _nodeNumber = isNodeExist(_nodeObject);
@@ -77,6 +98,11 @@ public:
 			}
 		}
 	}
+	/// <summary>
+	/// Добавление ребра
+	/// </summary>
+	/// <param name="iObject"></param>
+	/// <param name="jObject"></param>
 	void addEdge(T iObject, T jObject)
 	{
 		int i = isNodeExist(iObject), j = isNodeExist(jObject);
@@ -85,6 +111,11 @@ public:
 			edge.push_back(Edge(isNodeExist(iObject), isNodeExist(jObject)));
 		}
 	};
+	/// <summary>
+	/// Удаление ребра
+	/// </summary>
+	/// <param name="iObject"></param>
+	/// <param name="jObject"></param>
 	void deleteEdge(T iObject, T jObject)
 	{
 		for (int k = 0; k < edge.size(); k++)
@@ -95,6 +126,10 @@ public:
 			}
 		}
 	};
+	/// <summary>
+	/// Получение ребер из файла
+	/// </summary>
+	/// <param name="filename"></param>
 	void edgesFromFile(string filename)
 	{
 		ifstream inputFileStream;
@@ -116,6 +151,12 @@ public:
 		}
 		inputFileStream.close();
 	};
+	/// <summary>
+	/// Проверка существования рёбер
+	/// </summary>
+	/// <param name="iObject"></param>
+	/// <param name="jObject"></param>
+	/// <returns></returns>
 	int isEdgeExist(T iObject, T jObject)
 	{
 		for (int k = 0; k < edge.size(); k++)
@@ -128,6 +169,11 @@ public:
 		}
 		return -1;
 	};
+	/// <summary>
+	/// Проверка существования вершин
+	/// </summary>
+	/// <param name="_nodeObject"></param>
+	/// <returns></returns>
 	int isNodeExist(T _nodeObject)
 	{
 		for (int i = 0; i < node.size(); i++)
@@ -139,15 +185,25 @@ public:
 		}
 		return -1;
 	};
-	short countOfNodes()
+	/// <summary>
+	/// Количество вершин графа
+	/// </summary>
+	/// <returns></returns>
+	int countOfNodes()
 	{
 		return node.size();
 	};
-	short countOfEdges()
+	/// <summary>
+	/// Количество ребёр графа
+	/// </summary>
+	/// <returns></returns>
+	int countOfEdges()
 	{
 		return edge.size();
 	};
-
+	/// <summary>
+	/// Вывод вершин графа
+	/// </summary>
 	void showNodes()
 	{
 		cout << endl;
@@ -156,6 +212,9 @@ public:
 			cout << node[i].getObject() << endl;
 		}
 	};
+	/// <summary>
+	/// Вывод рёбер графа
+	/// </summary>
 	void showEdges()
 	{
 		cout << endl;
@@ -164,12 +223,31 @@ public:
 			cout << node[edge[i].getBegin()].getObject() << " - " << node[edge[i].getEnd()].getObject() << endl;
 		}
 	};
-
+	/// <summary>
+	/// Проверка на пустой контейнер
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	bool empty(void)
+	{
+		if (node.size() == 0)
+		{
+			return true;
+		}
+		return false;
+	}
+	/// <summary>
+	/// Итератор для вершин
+	/// </summary>
 	class Node_Iterator {
 	private:
 		Graph<T>* graphIteration;
 		int index;
 	public:
+		/// <summary>
+		/// Конструктор
+		/// </summary>
+		/// <param name="graph"></param>
 		Node_Iterator(Graph<T>& graph)
 		{
 			graphIteration = &graph;
@@ -177,7 +255,7 @@ public:
 		}
 		bool next()
 		{
-			if (graphForIteration->node.size() <= index + 1)
+			if (graphIteration->node.size() <= index + 1)
 			{
 				return false;
 			}
@@ -193,16 +271,19 @@ public:
 			index--;
 			return true;
 		}
+		/// <summary>
+		/// Перебор вершин, смежных вершине
+		/// </summary>
 		void getAdjacentNodes()
 		{
 			short countOfAdjacent = 0;
 			cout << endl;
-			for (int i = 0; i < graphForIteration->node.size(); i++)
+			for (int i = 0; i < graphIteration->node.size(); i++)
 			{
-				if (graphForIteration->isEdgeExist(index, i) == true)
+				if (graphIteration->isEdgeExist(index, i) == true)
 				{
 					countOfAdjacent++;
-					cout << graphForIteration->node[i].getObject() << ' ';
+					cout << graphIteration->node[i].getObject() << ' ';
 				}
 			}
 			if (countOfAdjacent == 0)
@@ -211,16 +292,19 @@ public:
 			}
 			cout << endl;
 		}
+		/// <summary>
+		/// Перебор рёбер, инцидентных вершине 
+		/// </summary>
 		void getIncidentEdges()
 		{
 			cout << endl;
 			short countOfIncident = 0;
-			for (int i = 0; i < graphForIteration->node.size(); i++)
+			for (int i = 0; i < graphIteration->node.size(); i++)
 			{
-				if (graphForIteration->isEdgeExist(index, i) == true)
+				if (graphIteration->isEdgeExist(index, i) == true)
 				{
 					countOfIncident++;
-					cout << graphForIteration->node[index].getObject() << " - " << graphForIteration->node[i].getObject() << endl;
+					cout << graphIteration->node[index].getObject() << " - " << graphIteration->node[i].getObject() << endl;
 				}
 			}
 			if (countOfIncident == 0)
@@ -232,12 +316,19 @@ public:
 
 
 	};
+	/// <summary>
+	/// Итератор для рёбер
+	/// </summary>
 	class Edge_iterator
 	{
 	private:
 		Graph<T>* graphForIteration;
 		int index;
 	public:
+		/// <summary>
+		/// Конструктор
+		/// </summary>
+		/// <param name="graph"></param>
 		Edge_iterator(Graph<T>& graph)
 		{
 			graphForIteration = &graph;
