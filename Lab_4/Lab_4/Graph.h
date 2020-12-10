@@ -184,6 +184,44 @@ public:
 			index--;
 			return true;
 		}
+		void getAdjacentNodes()
+		{
+			short countOfAdjacent = 0;
+			cout << endl;
+			for (int i = 0; i < graphForIteration->node.size(); i++)
+			{
+				if (graphForIteration->isEdgeExist(index, i) == true)
+				{
+					countOfAdjacent++;
+					cout << graphForIteration->node[i].getObject() << ' ';
+				}
+			}
+			if (countOfAdjacent == 0)
+			{
+				cout << "No nodes adjacent";
+			}
+			cout << endl;
+		}
+		void getIncidentEdges()
+		{
+			cout << endl;
+			short countOfIncident = 0;
+			for (int i = 0; i < graphForIteration->node.size(); i++)
+			{
+				if (graphForIteration->isEdgeExist(index, i) == true)
+				{
+					countOfIncident++;
+					cout << graphForIteration->node[index].getObject() << " - " << graphForIteration->node[i].getObject() << endl;
+				}
+			}
+			if (countOfIncident == 0)
+			{
+				cout << "No edges incident";
+			}
+			cout << endl;
+		}
+
+
 	};
 	class Edge_iterator
 	{
